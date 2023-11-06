@@ -39,22 +39,21 @@
 
   # Overlays
   nixpkgs = {
-    overlays = [
-      /*(self: super: {
-        discord = super.discord.overrideAttrs (
-          _: {
-            src = builtins.fetchTarball {
-              url = "https://discord.com/api/download?platform=linux&format=tar.gz";
-              sha256 = "";
-            };
-          }
-        );
-      })*/
-      # (import (builtins.fetchTarball {
-      #   url = "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
-      # }))
-      (import ../../overlays/firefox-overlay.nix)
-    ];
+    #overlays = [
+    #  (self: super: {
+    #    discord = super.discord.overrideAttrs (
+    #      _: {
+    #        src = builtins.fetchTarball {
+    #          url = "https://discord.com/api/download?platform=linux&format=tar.gz";
+    #        };
+    #      }
+    #    );
+    #  })
+    #  # (import (builtins.fetchTarball {
+    #  #   url = "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
+    #  # }))
+    #  (import ../../overlays/firefox-overlay.nix)
+    #];
     config = {
       allowUnfreePredicate = pkg: true;
       packageOverrides = pkgs: {
@@ -69,36 +68,6 @@
       };
     };
   };
-
-  # Packages that should be installed to the user profile.
-  home.packages = with pkgs; [
-    # personnal tools
-    kubectl
-    brave
-    vscode
-    bottles
-    discord
-    lens
-    protonvpn-gui
-    rustdesk
-    jetbrains-toolbox
-    wdisplays
-    drawio
-    #obs-studio
-    signal-desktop
-    cinnamon.bulky
-    yuzu-early-access
-    hakuneko
-    wireshark
-    obsidian
-    yubikey-manager
-    protonmail-bridge
-    ledger-live-desktop
-    popsicle
-    monero-gui
-    libreoffice-fresh
-    meld
-  ];
 
   # xdg.configFile."nvim".source = "${(pkgs.callPackage ./pkgs/nvchad.nix {})}";
   # home.file = {

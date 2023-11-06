@@ -25,10 +25,11 @@ in {
     xwayland = {
       enable = true;
     };
+    enablePatches = true;
     settings = {
       # "$mainMod" = "SUPER";
       monitor = [
-        #"DP-3,1920x1080@165,0x0,auto"
+        "DP-3,1920x1080@165,0x0,auto"
       ];
 
       xwayland = {
@@ -36,8 +37,8 @@ in {
       };
 
       input = {
-        kb_layout = "us";
-        kb_variant = "alt-intl";
+        kb_layout = "br";
+        kb_variant = "";
         kb_model = "";
         kb_options = "";
         kb_rules = "";

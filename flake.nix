@@ -38,21 +38,21 @@
           specialArgs = {
             inherit
               inputs
-              hyprland
+              hyprland-nvidia
               ;
           };
           modules = [
-            ./hosts/k/configuration.nix
+            ./hosts/redyf/configuration.nix
             home-manager.nixosModules.home-manager
             {
               home-manager = {
                 useUserPackages = true;
                 useGlobalPkgs = false;
                 extraSpecialArgs = {inherit inputs;};
-                users.k = ./home/k/home.nix;
+                users.redyf = ./home/k/home.nix;
               };
             }
-            hyprland.nixosModules.default
+            hyprland-nvidia.nixosModules.default
             {programs.hyprland.enable = true;}
           ];
         };
