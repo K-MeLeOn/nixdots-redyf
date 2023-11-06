@@ -42,14 +42,14 @@
               ;
           };
           modules = [
-            ./hosts/redyf/configuration.nix
+            ./hosts/k/configuration.nix
             home-manager.nixosModules.home-manager
             {
               home-manager = {
                 useUserPackages = true;
                 useGlobalPkgs = false;
                 extraSpecialArgs = {inherit inputs;};
-                users.redyf = ./home/k/home.nix;
+                users.k = ./home/k/home.nix;
               };
             }
             hyprland-nvidia.nixosModules.default
